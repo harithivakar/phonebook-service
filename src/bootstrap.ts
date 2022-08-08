@@ -37,8 +37,8 @@ function initializeServer(){
         })
     });
 
-    server.build().listen(3000, ()=>{
-        console.log(`server running at port 3000`);
+    server.build().listen(process.env.PORT || 3001, ()=>{
+        console.log(`server running at port ${process.env.PORT}`);
         
     })
 }
