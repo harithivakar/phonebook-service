@@ -4,6 +4,7 @@
   "description": "",
   "main": "dist/index.js",
   "scripts": {
+    "start:dev": "nodemon --exec ts-node -r dotenv/config ./src/index.ts",
     "test": "mocha -r ts-node/register src/**/*.spec.ts"
   },
   "keywords": [],
