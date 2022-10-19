@@ -1,18 +1,16 @@
+import { Model } from "mongoose";
 import { provideSingleton } from "../IOC/ioc";
+import { ContactModel, IContact } from "../models/Contact";
+import { contact } from "../types/contact";
+import { BaseService } from "./Base";
 
 @provideSingleton(ContactService)
-export class ContactService {
-  public async getAllContacts(): Promise<object[]> {
-    return [];
+export class ContactService extends BaseService<IContact, contact> {
+  public getModel(): Model<IContact> {
+    return ContactModel;
   }
 
-  public async getContact(id: string): Promise<object> {
-    return { name: "Harithivakar" };
+  public async getEntityByName(name: string): Promise<IContact> {
+    return this.getModel().findOne({name: name});
   }
-
-  public async createContact(data: object): Promise<void> {}
-
-  public async updateContact(id: string, data: object): Promise<void> {}
-
-  public async deleteContact(id: string): Promise<void> {}
 }
