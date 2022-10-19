@@ -1,1 +1,2 @@
 import './HealtCheck';
+import './Contact';
